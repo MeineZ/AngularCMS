@@ -1,8 +1,17 @@
-<header class="mdc-top-app-bar">
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
-        <span class="mdc-top-app-bar__title">Title</span>
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button"
+            mat-icon-button
+            [matMenuTriggerFor]="appMenu" 
+        >
+            menu
+        </button>
+        <span class="mdc-top-app-bar__title">App</span>
       </section>
     </div>
   </header>
+
+  <mat-menu #appMenu="matMenu">
+    <a routerLink="/login"><button mat-menu-item>Login</button></a>
+  </mat-menu>
