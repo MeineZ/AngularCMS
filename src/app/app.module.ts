@@ -1,3 +1,4 @@
+import { AdminService } from 'src/app/services/admin.service';
 import { MessageService } from './services/message.service';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +19,8 @@ import { ItemComponent } from './components/items/item/item.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,12 +29,14 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     ItemsComponent,
     ItemComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
+    FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       ItemsInMemoryService, { dataEncapsulation: false }
@@ -41,7 +46,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
   ],
   providers: [
     ItemService,
-    MessageService
+    MessageService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })

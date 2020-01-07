@@ -1,1 +1,21 @@
+<form (ngSubmit)="onSubmit($event)" #loginForm="ngForm">
+    <h2>Login</h2>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" 
+            id="username" 
+            required
+            [(ngModel)]="username" name="username"
+            #refName="ngModel" />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" 
+            required
+            [(ngModel)]="password" name="password"
+            #refPassword="ngModel"/>
+    </div>
 
+    <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
+    <span *ngIf="errorMsg.length">{{ errorMsg }}</span>
+</form>

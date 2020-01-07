@@ -1,0 +1,8 @@
+<div *ngIf="admin.isLoggedIn(); else loggedOut">
+    Logged in!
+</div>
+<ng-template #loggedOut>
+    <div>
+        NOT logged in!
+    </div>
+</ng-template>

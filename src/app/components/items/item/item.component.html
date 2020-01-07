@@ -1,1 +1,7 @@
-<p>item works!</p>
+<div class="item-container">
+    <h3 *ngIf="!editMode" class="item-name">
+        {{ item.name }}
+    </h3>
+    <input *ngIf="editMode" 
+        class="item-name" [value]="item.name">
+</div>

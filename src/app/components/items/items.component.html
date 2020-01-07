@@ -1,3 +1,4 @@
-<p *ngFor="let item of items" (click)="onDelete(item)">
-    {{ item.name }}
-</p>
+<item *ngFor="let i of items" 
+    [item]="i"
+>
+</item>

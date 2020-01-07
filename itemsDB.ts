@@ -2,12 +2,12 @@ import { Item } from './src/models/item';
 
 export const items: Item[] = [
 {
-    "id": 1,
-    "name": "Wallet",
-    "price": 39,
-    "numberLeft": 10,
-    "seller": "bol.com",
-    "sellerLink": "https://www.bol.com"
+    id: 1,
+    name: "Wallet",
+    price: 39,
+    numberLeft: 10,
+    seller: "bol.com",
+    sellerLink: "https://www.bol.com"
 },
 {
     id: 2,
