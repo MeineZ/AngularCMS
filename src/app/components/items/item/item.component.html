@@ -1,7 +1,26 @@
-<div class="item-container">
-    <h3 *ngIf="!editMode" class="item-name">
-        {{ item.name }}
-    </h3>
-    <input *ngIf="editMode" 
-        class="item-name" [value]="item.name">
-</div>
+<ng-container *ngIf="!editMode; then noEdit; else yesEdit">
+
+</ng-container>
+
+<ng-template #noEdit>
+    <div class="item-container">
+        <h3 class="item-name">
+            {{ item.name }}
+        </h3>
+    </div>
+</ng-template>
+
+<ng-template #yesEdit>
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+        <input
+            class="item-name" formControlName="name" required minLength="5"/>
+            
+        <input
+            class="item-seller" formControlName="seller" required minLength="3" />
+
+            <button type="submit" [disabled]="!itemForm.valid">Submit</button>
+            <span>{{itemForm.status}}</span>
+
+            <button type="button" (click)="handleDelete()">X</button>
+    </form>
+</ng-template>

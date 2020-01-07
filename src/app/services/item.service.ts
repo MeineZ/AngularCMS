@@ -37,10 +37,24 @@ export class ItemService {
     );
   }
 
+  updateItem(item: Item): Observable<any> {
+    const id = item.id;
+
+    return this.http.put(`${this.apiUrl}/${id}`, item, this.httpOptions).pipe(
+      tap(_ => this.log(`Updated item with id: ${id}`)),
+      catchError(this.handleError<any>('updateItem'))
+    );
+  }
+
+  addItem(item: Item): Observable<Item> {
+    return this.http.post<Item>(`${this.apiUrl}`, item, this.httpOptions).pipe(
+      tap(_ => this.log(`Added new item`)),
+      catchError(this.handleError<Item>('addItem'))
+    );
+  }
+
   handleError<T>(operation: string = 'operation', result?: T)  {
     return (error: any) => {
-      console.error(error);
-
       this.log(error);
 
       return of(result as T);

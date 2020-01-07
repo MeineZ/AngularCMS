@@ -6,3 +6,7 @@
         NOT logged in!
     </div>
 </ng-template>
+
+<item *ngFor="let i of items" [editMode]="true" [item]="i" (onUpdate)="handleUpdate($event)" (onDelete)="handleDelete($event)"></item>
+
+<button type="button" (click)="onAdd()">Add new Item</button>
